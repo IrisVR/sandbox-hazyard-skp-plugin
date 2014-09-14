@@ -16,6 +16,7 @@ class HazardLib
         definitions.load File.join(@libPath, "hazard_CementTruck.skp")
         definitions.load File.join(@libPath, "hazard_Trailer.skp")
         definitions.load File.join(@libPath, "hazard_CWorker_Safe.skp")
+        definitions.load File.join(@libPath, "hazard_CWorker_Unsafe.skp")
         # model.place_component coworker_safe
         UI.messagebox "Hazards components loaded."
     end # create_components

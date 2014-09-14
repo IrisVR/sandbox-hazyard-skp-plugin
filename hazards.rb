@@ -16,6 +16,20 @@ def init
 
     # create add worker button
     trailer_cmd = UI::Command.new("Add Start Point") {
+        # # With three params, it shows all text boxes:
+        # prompts = ["What is your Name?", "What is your Age?", "Gender"]
+        # defaults = ["Enter name", "", "Male"]
+        # # input = UI.inputbox(prompts, defaults, "Tell me about yourself.")
+        #
+        # prompts = ["What is your Name?", "What is your Age?", "Gender"]
+        # defaults = ["Enter name", "", "Male"]
+        # list = ["", "", "Male|Female"]
+        # # input = UI.inputbox(prompts, defaults, list, "Tell me about yourself.")
+        #
+        # if UI.inputbox(prompts, defaults, list, "Tell me about yourself.")
+        #     hazardlib.add_component("hazard_Trailer")
+        # end # if input
+
         hazardlib.add_component("hazard_Trailer")
     }
 
@@ -37,7 +51,7 @@ def init
     cementtruck_cmd.menu_text = "Add Truck Hazard"
     toolbar = toolbar.add_item cementtruck_cmd
 
-    # create add truck button
+    # create add safe worker button
     cementtruck_cmd = UI::Command.new("Add Safe Worker") {
         hazardlib.add_component("hazard_CWorker_Safe")
     }
@@ -48,17 +62,38 @@ def init
     cementtruck_cmd.menu_text = "Add Safe Worker"
     toolbar = toolbar.add_item cementtruck_cmd
 
+    # create add safe worker button
+    cementtruck_cmd = UI::Command.new("Add Unsafe Worker") {
+        hazardlib.add_component("hazard_CWorker_Unsafe")
+    }
+    cementtruck_cmd.small_icon = "assets/images/ico-cworker-unsafe.png"
+    cementtruck_cmd.large_icon = "assets/images/ico-cworker-unsafe@2x.png"
+    cementtruck_cmd.tooltip = "Add Unsafe Worker"
+    cementtruck_cmd.status_bar_text = "Adding a unsafe worker to the model"
+    cementtruck_cmd.menu_text = "Add Unsafe Worker"
+    toolbar = toolbar.add_item cementtruck_cmd
 
-    #create hazard zone
-    hazardZone_command = UI::Command.new("Add Hazard Zone") {
+    # create hazard zone
+    hazardZone_cmd = UI::Command.new("Add Hazard Zone") {
         hazardZones.add_zone
     }
-    hazardZone_command.small_icon = "ToolPencilSmall.png"
-    hazardZone_command.large_icon = "ToolPencilLarge.png"
-    hazardZone_command.tooltip = "Add Worker"
-    hazardZone_command.status_bar_text = "Adding a worker hazard to the model"
-    hazardZone_command.menu_text = "Add Worker"
-    toolbar = toolbar.add_item hazardZone_command
+    hazardZone_cmd.small_icon = "assets/images/ico-hazardzone.png"
+    hazardZone_cmd.large_icon = "assets/images/ico-hazardzone@2x.png"
+    hazardZone_cmd.tooltip = "Add Hazard Zone"
+    hazardZone_cmd.status_bar_text = "Adding a hazard zone to the model"
+    hazardZone_cmd.menu_text = "Add Hazard Zone"
+    toolbar = toolbar.add_item hazardZone_cmd
+
+    #create evac zone
+    evacZone_cmd = UI::Command.new("Add Evacuation Zone") {
+        hazardZones.add_zone
+    }
+    evacZone_cmd.small_icon = "assets/images/ico-evaczone.png"
+    evacZone_cmd.large_icon = "assets/images/ico-evaczone@2x.png"
+    evacZone_cmd.tooltip = "Add Evac Zone"
+    evacZone_cmd.status_bar_text = "Adding a evacuation zone to the model"
+    evacZone_cmd.menu_text = "Add Evac Zone"
+    toolbar = toolbar.add_item evacZone_cmd
 
     toolbar.show
 
