@@ -3,8 +3,9 @@ class HazardLib
     # Initialize the Class
     def initialize(size = 0)
         @size = size
-        @libPath = "/Users/irisvr/Developer/aec-hackathon-skp-hazards/assets/hazard-models"
-                   
+        path = File.join(File.dirname(__FILE__), '..', 'assets/hazard-models')
+        @libPath = path
+
     end # initialize
 
     # Create a component for each model in `assets/hazard-models`
