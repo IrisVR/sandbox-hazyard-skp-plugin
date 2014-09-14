@@ -3,7 +3,8 @@ class HazardLib
     # Initialize the Class
     def initialize(size = 0)
         @size = size
-        @libPath = "/Users/tnbeatty/Developer/Iris/aec-hackathon/skp-hazards/assets/hazard-models"
+        @libPath = "/Users/irisvr/Developer/aec-hackathon-skp-hazards/assets/hazard-models"
+                   
     end # initialize
 
     # Create a component for each model in `assets/hazard-models`
