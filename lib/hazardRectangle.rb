@@ -3,7 +3,7 @@
 # This software is provided as an example of using the Ruby interface
 # to SketchUp.
 
-# Permission to use, copy, modify, and distribute this software for 
+# Permission to use, copy, modify, and distribute this software for
 # any purpose and without fee is hereby granted, provided that the above
 # copyright notice appear in all copies.
 
@@ -27,7 +27,7 @@ require 'sketchup.rb'
 
 #=============================================================================
 
-module RectangleTool
+module HazardZoneTool
 
 class Rectangle
 
@@ -61,10 +61,10 @@ def set_current_point(x, y, view)
         return false
     end
     need_draw = true
-    
+
     # Set the tooltip that will be displayed
     view.tooltip = @ip.tooltip
-        
+
     # Compute points
     case @state
     when 0
@@ -123,9 +123,9 @@ def create_rectangle
         hazMat.alpha = 0.5
         hazMat.color = "yellow"
 
-        new_face.material = hazMat;
+        new_face.back_material = hazMat;
 
-        new_face.pushpull 10
+        new_face.pushpull -10
 
 
     end
@@ -174,7 +174,7 @@ def onUserText(text, view)
         Sketchup::set_status_text "", SB_VCB_VALUE
     end
     return if !value
-    
+
     case @state
     when 1
         # update the width
@@ -216,7 +216,7 @@ end
 
 def draw(view)
     @drawn = false
-    
+
     # Show the current input point
     if( @ip.valid? && @ip.display? )
         @ip.draw(view)
@@ -243,7 +243,7 @@ end
 def onKeyDown(key, rpt, flags, view)
     if( key == CONSTRAIN_MODIFIER_KEY && rpt == 1 )
         @shift_down_time = Time.now
-        
+
         # if we already have an inference lock, then unlock it
         if( view.inference_locked? )
             view.lock_inference

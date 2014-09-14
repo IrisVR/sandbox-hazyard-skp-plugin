@@ -1,6 +1,6 @@
-class HazardZones
+class EvacZones
 
-	include HazardZoneTool
+	include EvacZoneTool
 
 	$new_face
 

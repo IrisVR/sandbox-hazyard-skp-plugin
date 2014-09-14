@@ -2,15 +2,18 @@ libDir = "lib"
 
 # Require all
 require_relative File.join(libDir, "HazardLib.rb")
-require_relative File.join(libDir, "rectangle.rb")
+require_relative File.join(libDir, "hazardRectangle.rb")
+require_relative File.join(libDir, "evacRectangle.rb")
 
 require_relative File.join(libDir, "hazardZones.rb")
+require_relative File.join(libDir, "evacZones.rb")
 
 def init
     hazardlib = HazardLib.new()
     hazardlib.create_components
 
     hazardZones = HazardZones.new()
+    evacZones = EvacZones.new()
 
     toolbar = UI::Toolbar.new "Hazard Constructor"
 
@@ -86,7 +89,7 @@ def init
 
     #create evac zone
     evacZone_cmd = UI::Command.new("Add Evacuation Zone") {
-        hazardZones.add_zone
+        evacZones.add_zone
     }
     evacZone_cmd.small_icon = "assets/images/ico-evaczone.png"
     evacZone_cmd.large_icon = "assets/images/ico-evaczone@2x.png"
