@@ -113,9 +113,9 @@ def create_rectangle
 
         new_group = group = Sketchup.active_model.active_entities.add_group( new_face )
 
-        new_group.name = "evac_zone"
+        new_group.name = "hazard_evacZone"
 
-        new_group.set_attribute "testdictionary", "test", 115
+        new_group.set_attribute "testdictionary", "test", "test"
 
         model = Sketchup.active_model
         materials = model.materials
