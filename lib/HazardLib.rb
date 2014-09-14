@@ -12,27 +12,33 @@ class HazardLib
         model = Sketchup.active_model
         definitions = model.definitions
 
-        coworker_safe = definitions.load File.join(@libPath, "CWorker-Safe.skp")
-        UI.messagebox coworker_safe.name
+        definitions.load File.join(@libPath, "hazard_CementTruck.skp")
+        definitions.load File.join(@libPath, "hazard_Trailer.skp")
+        definitions.load File.join(@libPath, "hazard_CWorker_Safe.skp")
+        # model.place_component coworker_safe
+        UI.messagebox "Hazards components loaded."
     end # create_components
 
     def add_component(name = "CWorker-Safe")
-        entities = Sketchup.active_model.entities
-        definitions = Sketchup.active_model.definitions
+        model = Sketchup.active_model
+        entities = model.entities
+        definitions = model.definitions
 
-        definitions.each { |definition|
+        definitions.each { |componentdef|
 
-            if definition.name == name
-                transformation = Geom::Transformation.new([0,0,0])
-                componentinstance = entities.add_instance(definition, transformation)
+            if componentdef.name == name
+
+                model.place_component componentdef
+
+                return;
 
                 # Set the component-specific attribute dictionary
-                case name
-                when "CWorker-Safe"
-                    componentinstance.set_attribute "attributes", "hazardlib", "true"
-                else
-                    componentinstance.set_attribute "attributes", "hazardlib", "true"
-                end
+                # case name
+                # when "CWorker-Safe"
+                #     componentinstance.set_attribute "attributes", "hazardlib", "true"
+                # else
+                #     componentinstance.set_attribute "attributes", "hazardlib", "true"
+                # end
 
                 # value = componentinstance.get_attribute "testdictionary", "test"
                 #

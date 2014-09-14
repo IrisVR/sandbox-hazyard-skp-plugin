@@ -1,4 +1,4 @@
 skp-hazards
 ===
 
-A sketchup plugin to create and define job-site hazards in SketchUp.
+A SketchUp plugin to create and define job-site hazards in SketchUp.
