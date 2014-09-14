@@ -121,7 +121,7 @@ def create_rectangle
         materials = model.materials
         evacMat = materials.add('evacMat')
         evacMat.alpha = 0.5
-        evacMat.color = "blue"
+        evacMat.color = "green"
 
         new_face.back_material = evacMat;
 

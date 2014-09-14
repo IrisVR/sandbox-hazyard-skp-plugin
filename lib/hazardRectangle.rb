@@ -121,7 +121,7 @@ def create_rectangle
         materials = model.materials
         hazMat = materials.add('hazMat')
         hazMat.alpha = 0.5
-        hazMat.color = "yellow"
+        hazMat.color = "red"
 
         new_face.back_material = hazMat;
 
